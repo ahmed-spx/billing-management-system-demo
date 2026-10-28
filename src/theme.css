@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Light palette */
+  --color-bg: #F4F6F8;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #EDF0F4;
+  --color-border: #D7DDE6;
+  --color-text: #1B2532;
+  --color-muted: #5C6675;
+  --color-primary: #2A4C7D;        /* navy — brand, consulting, main actions */
+  --color-primary-soft: #E6EDF6;
+  --color-accent: #2E7D5B;         /* green — open/positive/go */
+  --color-accent-soft: #E1F0E8;
+  --color-locked: #8A6D1F;         /* gold — locked/exported */
+  --color-locked-soft: #F3ECD6;
+  --color-danger: #B23B3B;         /* red — negative money, delete */
+  --color-danger-soft: #F6E4E4;
+  --color-stripe: #5B4AB5;         /* purple — Stripe only */
+  --color-stripe-soft: #E9E6F6;
+
+  /* Expense-category tags (Pill `cat-1/2/3/x`) */
+  --color-cat-1: #2A4C7D;
+  --color-cat-1-soft: #E6EDF6;
+  --color-cat-2: #2E7D5B;
+  --color-cat-2-soft: #E1F0E8;
+  --color-cat-3: #8A6D1F;
+  --color-cat-3-soft: #F3ECD6;
+  --color-cat-x: #5C6675;
+  --color-cat-x-soft: #EDF0F4;
+
+  --radius-card: 12px;
+  --shadow-card: 0 1px 2px rgba(20, 30, 45, .06), 0 6px 20px rgba(20, 30, 45, .06);
+}
+
+/*
+ * Dark mode. The same --color-* tokens are redefined so every
+ * `bg-surface` / `text-primary` / `border-border` utility cascades.
+ * Default follows the OS; the AppBar toggle sets data-theme="dark"|"light"
+ * on <html> to force a mode, so the OS block is guarded against an explicit
+ * light override.
+ */
+@layer theme {
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --color-bg: #0F141B;
+      --color-surface: #171E28;
+      --color-surface-2: #212A37;
+      --color-border: #2C3744;
+      --color-text: #E6EBF2;
+      --color-muted: #94A1B2;
+      --color-primary: #6FA0DB;
+      --color-primary-soft: #1E2C3F;
+      --color-accent: #5FB58C;
+      --color-accent-soft: #163026;
+      --color-locked: #C6A84E;
+      --color-locked-soft: #322B16;
+      --color-danger: #D98585;
+      --color-danger-soft: #3A1E1E;
+      --color-stripe: #9B8BE0;
+      --color-stripe-soft: #241F3A;
+
+      --color-cat-1: #6FA0DB;
+      --color-cat-1-soft: #1E2C3F;
+      --color-cat-2: #5FB58C;
+      --color-cat-2-soft: #163026;
+      --color-cat-3: #C6A84E;
+      --color-cat-3-soft: #322B16;
+      --color-cat-x: #94A1B2;
+      --color-cat-x-soft: #212A37;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --color-bg: #0F141B;
+    --color-surface: #171E28;
+    --color-surface-2: #212A37;
+    --color-border: #2C3744;
+    --color-text: #E6EBF2;
+    --color-muted: #94A1B2;
+    --color-primary: #6FA0DB;
+    --color-primary-soft: #1E2C3F;
+    --color-accent: #5FB58C;
+    --color-accent-soft: #163026;
+    --color-locked: #C6A84E;
+    --color-locked-soft: #322B16;
+    --color-danger: #D98585;
+    --color-danger-soft: #3A1E1E;
+    --color-stripe: #9B8BE0;
+    --color-stripe-soft: #241F3A;
+
+    --color-cat-1: #6FA0DB;
+    --color-cat-1-soft: #1E2C3F;
+    --color-cat-2: #5FB58C;
+    --color-cat-2-soft: #163026;
+    --color-cat-3: #C6A84E;
+    --color-cat-3-soft: #322B16;
+    --color-cat-x: #94A1B2;
+    --color-cat-x-soft: #212A37;
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: light dark;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
+}
